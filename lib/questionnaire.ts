@@ -86,8 +86,6 @@ console.log(verificarValores(2, 5, 3, 6));`,
   {
     id: "q3",
     title: "Questão 3 – Decomposição em notas",
-    summary:
-      "Observação: a versão original tinha strings sem template literal. Abaixo está a forma equivalente em TypeScript.",
     language: "ts",
     code: `function decomporNotas(valor: number) {
   const notas = [200, 100, 50, 20, 10, 5, 2, 1];
@@ -257,14 +255,42 @@ matrizCaracol(5);`,
   {
     id: "q9",
     title: "Questão 9 – SQL",
-    summary:
-      "[X] Será retornado o código, o nome e o CEP dos clientes que moram no bairro PACARAIMA e, são da cidade PORTO DE MOZ do estado do Espírito Santos ou são da cidade URUARA do Distrito Federal. [X] Será retornado o código, o nome e o CEP dos clientes que moram no bairro PACARAIMA e, são da cidade URUARA do Distrito Federal ou são da cidade PORTO DE MOZ do estado do Espírito Santos. (As duas descrevem a mesma query — o OR é comutativo)",
+    summary: `[X] Será retornado o código, o nome e o CEP dos clientes que moram no bairro PACARAIMA e, são da cidade PORTO DE MOZ do estado do Espírito Santos ou são da cidade URUARA do Distrito Federal.
+
+[ ] Será retornado o código, o nome e o CEP dos clientes que moram no bairro PACARAIMA e são da cidade PORTO DE MOZ do estado do Espírito Santos e são da cidade URUARA do Distrito Federal.
+
+[X] Será retornado o código, o nome e o CEP dos clientes que moram no bairro PACARAIMA e, são da cidade URUARA do Distrito Federal ou são da cidade PORTO DE MOZ do estado do Espírito Santos.
+
+[ ] Será retornado o código, o nome, o CEP e a data de nascimento dos clientes que moram no bairro PACARAIMA e, são da cidade PORTO DE MOZ do estado do Espírito Santos ou são da cidade URUARA do Distrito Federal.`,
   },
   {
     id: "q10",
     title: "Questão 10",
-    summary:
-      "A) 0:N (Zero a muitos) — Um cliente pode existir sem ter nenhum atendimento registrado. B) Restrições: nenhum atendimento pode possuir a mesma data e hora; um cliente pode ser atendido por vários funcionários (um funcionário por vez); todo atendimento requer que exista um cliente e um funcionário cadastrado previamente.",
+    summary: `A)
+
+[ ] 1:0 (Um para nenhum)
+
+[ ] 1:N (Um para muitos)
+
+[ ] N:1 (Muitos para um)
+
+[ ] M:N (Muitos para Muitos)
+
+[X] 0:N (Zero a muitos)
+
+----------------------------------------
+
+B)
+
+[ ] Um cliente pode ser atendido por um funcionário que não possua um nome cadastrado.
+
+[X] Nenhum atendimento pode possuir a mesma data e hora.
+
+[ ] Um cliente pode ser atendido sem um funcionário.
+
+[X] Um cliente pode ser atendido por vários funcionários, sendo um funcionário por vez.
+
+[X] Todo atendimento requer que exista um cliente e um funcionário cadastrado previamente.`,
   },
   {
     id: "q11",
@@ -295,8 +321,6 @@ WHERE (l.LCADATAHORAATEND BETWEEN '2011-01-01' AND '2011-02-28')
   {
     id: "q12",
     title: "Questão 12 – Programar um pato",
-    summary:
-      "Observação: a versão original tinha interpolação sem template literal. Abaixo está a forma equivalente.",
     language: "ts",
     code: `class Pato {
   nome: string;
@@ -321,11 +345,44 @@ pato.nadar();`,
   {
     id: "q13",
     title: "Questão 13 – Planejamento de entrega",
-    summary: "Não há algoritmo; apenas ações organizacionais listadas.",
+    summary:
+      "Dada a situação, onde o prazo para a entrega dos relatórios é de 15 dias (10 dias para desenvolvimento e 3 dias para testes), minha primeira ação seria planejar o uso eficaz do tempo para garantir a entrega dentro do prazo. As ações que tomaria seriam: Finalização do Relatório 1: O primeiro relatório já foi finalizado em 6 dias, o que me dá um bom tempo extra para os outros relatórios. Desenvolvimento dos Relatórios 2 e 3: Como a complexidade é semelhante, começaria o desenvolvimento do segundo relatório imediatamente após a finalização do primeiro, utilizando os 4 dias restantes para o desenvolvimento. Testes das rotinas: O setor de testes precisa de 3 dias para validar as rotinas. Assim, iniciaria o processo de teste logo após a finalização do segundo relatório. Possível paralelo no desenvolvimento: Caso o time de testes não precise de tempo exclusivo para o segundo relatório, poderia tentar desenvolver o terceiro relatório em paralelo, durante o processo de teste dos outros dois. Comunicação constante: Manteria uma comunicação contínua com a equipe de produto e com o cliente, reportando qualquer risco de atraso, se necessário. Com esse planejamento, a entrega dos 3 relatórios seria viável dentro do prazo de 15 dias, sem comprometer a qualidade do trabalho.",
   },
   {
     id: "q14",
     title: "Questão 14 – Problema com rotina de cadastro",
-    summary: "Não há algoritmo; apenas análise, diagnóstico e ações listadas.",
+    summary: `A) Análise para auxiliar o setor de suporte no atendimento do cliente
+
+Para auxiliar o setor de suporte, a primeira ação seria revisar os logs e registros de alterações no sistema, a fim de entender o impacto da mudança solicitada (campos obrigatórios se tornando opcionais) sobre os relatórios de produtos.
+
+Ações específicas:
+
+- Revisar a alteração no cadastro: verificar se, ao tornar os campos obrigatórios em opcionais, a lógica de preenchimento no banco de dados foi alterada (impactando o comportamento dos relatórios).
+
+- Verificar a integridade dos dados: confirmar se os produtos cadastrados antes da alteração foram corretamente atualizados, ou se existem registros inconsistentes.
+
+- Revisar os relatórios afetados: analisar os relatórios com divergências nas quantidades, verificando quais dados foram afetados pela mudança.
+
+- Revisar mudanças no banco de dados: verificar se a alteração nos campos opcionais alterou o comportamento das consultas SQL/agrupamentos que geram os relatórios.
+
+- Verificar a comunicação com os clientes: confirmar se os clientes foram informados corretamente sobre a nova versão e a mudança no cadastro, garantindo clareza do comportamento esperado.
+
+B) Diagnóstico sobre o possível problema e ações para resolver
+
+Diagnóstico:
+
+O problema provavelmente está relacionado à alteração dos campos obrigatórios para opcionais, o que pode ter causado inconsistências no banco de dados ou afetado a forma como as informações são processadas nos relatórios. O sistema pode estar tratando de maneira inadequada registros de produtos sem preenchimento dos campos opcionais.
+
+Ações para resolver:
+
+- Auditoria de dados: verificar se a opcionalização está gerando nulos/registros incompletos e se isso afeta contagens/agrupamentos.
+
+- Correção do banco de dados: caso haja inconsistências, corrigir os dados afetados (incluindo possível atualização em massa).
+
+- Ajuste nas consultas de relatório: revisar e corrigir consultas SQL/agrupamentos para garantir que as quantidades sejam calculadas corretamente, mesmo com campos nulos.
+
+- Testes pós-correção: validar que os relatórios voltaram a bater com o cadastro e que a mudança não afetou outras rotinas.
+
+- Documentação e comunicação: informar os clientes sobre a correção, atualizar a documentação e orientar quanto ao novo comportamento da rotina de cadastro.`,
   },
 ];

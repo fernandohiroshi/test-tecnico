@@ -52,6 +52,11 @@ export default function Home() {
               <Button asChild size="lg">
                 <Link href="#questionario">Ver respostas</Link>
               </Button>
+              <Button asChild size="lg" variant="secondary">
+                <a href="/Teste-DSIN-Dev.pdf" download>
+                  Baixar PDF
+                </a>
+              </Button>
               <Button asChild size="lg" variant="outline">
                 <Link href="#perfil">Ver perfil</Link>
               </Button>
@@ -150,7 +155,7 @@ export default function Home() {
               <Card key={entry.id}>
                 <CardHeader>
                   <CardTitle>{entry.title}</CardTitle>
-                  {entry.summary ? (
+                  {entry.code && entry.summary ? (
                     <CardDescription>{entry.summary}</CardDescription>
                   ) : null}
                 </CardHeader>
@@ -160,7 +165,7 @@ export default function Home() {
                   </CardContent>
                 ) : (
                   <CardContent>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm whitespace-pre-line text-muted-foreground">
                       {entry.summary ?? "Sem conteúdo de código para exibir."}
                     </p>
                   </CardContent>
