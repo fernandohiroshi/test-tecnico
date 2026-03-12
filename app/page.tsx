@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { SiteHeader } from "@/components/site-header";
 import { Badge } from "@/components/ui/badge";
@@ -31,35 +32,50 @@ export default function Home() {
         <section className="relative py-14 sm:py-20">
           <div className="absolute inset-0 -z-10 opacity-60 [background:radial-gradient(60%_60%_at_50%_0%,oklch(0.97_0_0)_0%,transparent_70%)] dark:[background:radial-gradient(60%_60%_at_50%_0%,oklch(0.25_0_0)_0%,transparent_70%)]" />
 
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="secondary">Next.js</Badge>
-              <Badge variant="secondary">Tailwind</Badge>
-              <Badge variant="secondary">shadcn/ui</Badge>
-              <Badge variant="secondary">SEO-ready</Badge>
+          <div className="grid items-center gap-10 md:grid-cols-[1fr_280px]">
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge variant="secondary">Next.js</Badge>
+                <Badge variant="secondary">Tailwind</Badge>
+                <Badge variant="secondary">shadcn/ui</Badge>
+                <Badge variant="secondary">SEO-ready</Badge>
+              </div>
+
+              <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-5xl">
+                Minhas respostas para o teste técnico
+              </h1>
+              <p className="max-w-2xl text-pretty text-base text-muted-foreground sm:text-lg">
+                Avaliação Técnica — Teste Lógica de Programação
+                <br />
+                Vaga/Setor: Desenvolvedor de Sistema
+              </p>
+
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Button asChild size="lg">
+                  <Link href="#questionario">Ver respostas</Link>
+                </Button>
+                <Button asChild size="lg" variant="secondary">
+                  <a href="/Teste-DSIN-Dev.pdf" download>
+                    Baixar PDF
+                  </a>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <Link href="#perfil">Ver perfil</Link>
+                </Button>
+              </div>
             </div>
 
-            <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-5xl">
-              Minhas respostas para o teste técnico
-            </h1>
-            <p className="max-w-2xl text-pretty text-base text-muted-foreground sm:text-lg">
-              Avaliação Técnica — Teste Lógica de Programação
-              <br />
-              Vaga/Setor: Desenvolvedor de Sistema
-            </p>
-
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button asChild size="lg">
-                <Link href="#questionario">Ver respostas</Link>
-              </Button>
-              <Button asChild size="lg" variant="secondary">
-                <a href="/Teste-DSIN-Dev.pdf" download>
-                  Baixar PDF
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link href="#perfil">Ver perfil</Link>
-              </Button>
+            <div className="mx-auto w-full max-w-[280px]">
+              <div className="relative aspect-square overflow-hidden rounded-2xl border bg-muted/30 shadow-sm">
+                <Image
+                  src="/me.jpeg"
+                  alt="Fernando Hiroshi Takeda"
+                  fill
+                  sizes="(min-width: 768px) 280px, 60vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </section>
